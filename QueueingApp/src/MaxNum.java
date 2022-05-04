@@ -61,8 +61,8 @@ public class MaxNum extends JFrame {
 					int desNum = Integer.parseInt(input);
 			
 					QueueApp qApp = new QueueApp(desNum);
-					qApp.show();
 					
+					qApp.show();
 					dispose();
 					
 					
