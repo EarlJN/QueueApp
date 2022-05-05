@@ -34,6 +34,9 @@ public class QueueApp extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 
+		ClientView cView = new ClientView();
+		cView.show();
+
 		String sDesNum = String.valueOf(desNum);
 
 		JButton btnWindow1 = new JButton("Window 1");
@@ -44,12 +47,15 @@ public class QueueApp extends JFrame {
 				if (curNumDis < desNum) {
 					curNumDis += 1;
 					labelCurrentNum.setText(String.valueOf(curNumDis));
+
 				} else {
 					labelCurrentNum.setText(String.valueOf("X"));
 				}
 
 				if (curNum < desNum + 1) {
-
+					cView.labelToWindow.setText("1");
+					cView.labelCurCustomer.setText(String.valueOf(curNum));
+					cView.viewWin1.setText(String.valueOf(curNum));
 					labelWin1.setText(String.valueOf(curNum));
 					curNum += 1;
 
@@ -77,12 +83,15 @@ public class QueueApp extends JFrame {
 				if (curNumDis < desNum) {
 					curNumDis += 1;
 					labelCurrentNum.setText(String.valueOf(curNumDis));
+
 				} else {
 					labelCurrentNum.setText(String.valueOf("X"));
 				}
 
 				if (curNum < desNum + 1) {
-
+					cView.labelToWindow.setText("4");
+					cView.labelCurCustomer.setText(String.valueOf(curNum));
+					cView.viewWin4.setText(String.valueOf(curNum));
 					labelWin4.setText(String.valueOf(curNum));
 					curNum += 1;
 
@@ -115,7 +124,9 @@ public class QueueApp extends JFrame {
 				}
 
 				if (curNum < desNum + 1) {
-
+					cView.labelToWindow.setText("3");
+					cView.labelCurCustomer.setText(String.valueOf(curNum));
+					cView.viewWin3.setText(String.valueOf(curNum));
 					labelWin3.setText(String.valueOf(curNum));
 					curNum += 1;
 
@@ -147,7 +158,9 @@ public class QueueApp extends JFrame {
 				}
 
 				if (curNum < desNum + 1) {
-
+					cView.labelToWindow.setText("2");
+					cView.labelCurCustomer.setText(String.valueOf(curNum));
+					cView.viewWin2.setText(String.valueOf(curNum));
 					labelWin2.setText(String.valueOf(curNum));
 					curNum += 1;
 
@@ -278,6 +291,12 @@ public class QueueApp extends JFrame {
 				labelWin2.setText("0");
 				labelWin3.setText("0");
 				labelWin4.setText("0");
+				cView.labelToWindow.setText("X");
+				cView.labelCurCustomer.setText("X");
+				cView.viewWin1.setText("0");
+				cView.viewWin2.setText("0");
+				cView.viewWin3.setText("0");
+				cView.viewWin4.setText("0");
 				labelCurrentNum.setText(String.valueOf(curNum));
 
 			}
@@ -290,6 +309,7 @@ public class QueueApp extends JFrame {
 		btnChange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				cView.dispose();
 				MaxNum mApp = new MaxNum();
 				mApp.show();
 				dispose();

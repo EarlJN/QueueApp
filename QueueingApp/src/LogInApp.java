@@ -21,9 +21,6 @@ public class LogInApp extends JFrame {
 	private JTextField textUser;
 	private JPasswordField textPass;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {

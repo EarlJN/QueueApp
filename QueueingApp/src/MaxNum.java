@@ -13,17 +13,11 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 public class MaxNum extends JFrame {
 
 	private JPanel contentPane;
 	private JFormattedTextField insertMaxNum;
 
-
-	/**
-	 * Create the frame.
-	 */
-	
 	public MaxNum() {
 		setTitle("Queueing App");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,7 +28,7 @@ public class MaxNum extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JTextPane txtpnWindow_1_2_1_2_1 = new JTextPane();
 		txtpnWindow_1_2_1_2_1.setText("     MAX QUEUEING NUMBER");
 		txtpnWindow_1_2_1_2_1.setForeground(Color.WHITE);
@@ -43,56 +37,54 @@ public class MaxNum extends JFrame {
 		txtpnWindow_1_2_1_2_1.setBackground(new Color(102, 102, 102));
 		txtpnWindow_1_2_1_2_1.setBounds(100, 30, 234, 30);
 		contentPane.add(txtpnWindow_1_2_1_2_1);
-		
+
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String input = insertMaxNum.getText();
-				
-				
-				if(input.isBlank()) {
+
+				if (input.isBlank()) {
 					JFrame warn = new JFrame("WARNING");
-				    warn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					
-					JOptionPane.showMessageDialog(warn, "The max queueing number is empty!",
-				               "WARNING", JOptionPane.WARNING_MESSAGE);
+					warn.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+					JOptionPane.showMessageDialog(warn, "The max queueing number is empty!", "WARNING",
+							JOptionPane.WARNING_MESSAGE);
 				} else {
 					int desNum = Integer.parseInt(input);
-			
+
 					QueueApp qApp = new QueueApp(desNum);
-					
+
 					qApp.show();
 					dispose();
-					
-					
+
 				}
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton.setBounds(100, 250, 89, 35);
 		contentPane.add(btnNewButton);
-		
+
 		JButton btnLogout = new JButton("LOGOUT");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				LogInApp lApp = new LogInApp();
 				lApp.show();
 				dispose();
-				
+
 			}
 		});
 		btnLogout.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnLogout.setBounds(245, 250, 89, 35);
 		contentPane.add(btnLogout);
-		
+
 		insertMaxNum = new JFormattedTextField();
 		insertMaxNum.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				char c = e.getKeyChar();
-				
-				if(!Character.isDigit(c)) {
+
+				if (!Character.isDigit(c)) {
 					e.consume();
 				}
 			}
